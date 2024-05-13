@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import {  Container, Row, Col, Form, Button, Alert, Card} from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Alert,
+  Card,
+} from "react-bootstrap";
 import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 import axios from "axios";
 
@@ -14,7 +22,9 @@ function ContactUs() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const numericValue = name === 'phoneNumber' ? value.replace(/\D/g, '') : value;
+
+    setFormData({ ...formData, [name]: numericValue });
   };
 
   const handleSubmit = async (e) => {
@@ -27,9 +37,11 @@ function ContactUs() {
         formData
       );
       if (response.status === 200) {
-        alert(" thank you for contacting us, we will shortly connect with you  ");
+        alert(
+          " thank you for contacting us, we will shortly connect with you  "
+        );
         setShowAlert(true);
-         // Redirect to homepage after 3 seconds
+        // Redirect to homepage after 3 seconds
         setTimeout(() => {
           window.location.href = "/home"; // Replace "/" with your homepage URL
         }, 3000);
@@ -50,12 +62,10 @@ function ContactUs() {
       message: "",
       phoneNumber: "",
     });
-
-   
   };
   const textStyle = {
-    fontWeight: 'bold',
-    textTransform: 'uppercase'
+    fontWeight: "bold",
+    textTransform: "uppercase",
   };
 
   return (
@@ -73,27 +83,40 @@ function ContactUs() {
               style={{ listStyleType: "none", paddingLeft: 0 }}
             >
               <li style={{ marginBottom: "10px" }}>
-                <a href="https://wa.me/919854581259" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="https://wa.me/919854581259"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Card>
                     <Card.Body>
                       <FaWhatsapp />{" "}
-                      <span style={{ marginLeft: "10px" }}>+91-985-458-1259</span>
+                      <span style={{ marginLeft: "10px" }}>
+                        +91-985-458-1259
+                      </span>
                     </Card.Body>
                   </Card>
                 </a>
               </li>
               <li style={{ marginBottom: "10px" }}>
-                <a href="tel:+919854581256" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="tel:+919854581256"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Card>
                     <Card.Body>
                       <FaPhone />{" "}
-                      <span style={{ marginLeft: "10px" }}>+91-985-458-1256</span>
+                      <span style={{ marginLeft: "10px" }}>
+                        +91-985-458-1256
+                      </span>
                     </Card.Body>
                   </Card>
                 </a>
               </li>
               <li style={{ marginBottom: "10px" }}>
-                <a href="mailto:seedinfotech@gmail.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="mailto:seedinfotech@gmail.com"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Card>
                     <Card.Body>
                       <FaEnvelope />{" "}
@@ -105,14 +128,20 @@ function ContactUs() {
                 </a>
               </li>
               <li>
-                <a href="https://www.google.com/maps/place/Nalanda%E2%80%99,+S+No.39+CTS+No+943,+Hissa+2+/2,+Gulawani+Maharaj+Road,+opp.+Gandhi+Lawns,+near+ICICI+Bank,+Erandwane,+Pune,+Maharashtra+411004"
-                target="_blank" rel="noopener noreferrer" className="contact-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <a
+                  href="https://www.google.com/maps/place/Nalanda%E2%80%99,+S+No.39+CTS+No+943,+Hissa+2+/2,+Gulawani+Maharaj+Road,+opp.+Gandhi+Lawns,+near+ICICI+Bank,+Erandwane,+Pune,+Maharashtra+411004"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-card-link"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Card className="contact-card">
                     <Card.Body>
                       <Card.Title>Contact Us</Card.Title>
                       <Card.Text>
-                        Nalanda’, S No.39 CTS No 943, Hissa 2 /2, Gulawani Maharaj Road, opp. Gandhi Lawns, 
-                        near ICICI Bank, Erandwane, Pune, Maharashtra 411004
+                        Nalanda’, S No.39 CTS No 943, Hissa 2 /2, Gulawani
+                        Maharaj Road, opp. Gandhi Lawns, near ICICI Bank,
+                        Erandwane, Pune, Maharashtra 411004
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -124,7 +153,7 @@ function ContactUs() {
         <Col md={8}>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName" style={{ marginBottom: "20px" }}>
-              <Form.Label style={textStyle}>Your Name</Form.Label>
+              <Form.Label style={textStyle}>Your Name <span style={{ color: 'red' }}>*</span> : </Form.Label>
               <Form.Control
                 type="text"
                 name="name"
@@ -136,7 +165,7 @@ function ContactUs() {
               />
             </Form.Group>
             <Form.Group controlId="formEmail" style={{ marginBottom: "20px" }}>
-              <Form.Label style={textStyle}>Your Email</Form.Label>
+              <Form.Label style={textStyle}>Your Email <span style={{ color: 'red' }}>*</span> :</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -147,8 +176,11 @@ function ContactUs() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formMessage" style={{ marginBottom: "20px" }}>
-              <Form.Label style={textStyle}>Your Message</Form.Label>
+            <Form.Group
+              controlId="formMessage"
+              style={{ marginBottom: "20px" }}
+            >
+              <Form.Label style={textStyle}>Your Message <span style={{ color: 'red' }}>*</span> :</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={4}
@@ -159,13 +191,17 @@ function ContactUs() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formPhoneNumber" style={{ marginBottom: "20px" }}>
-              <Form.Label style={textStyle}>Your Phone Number</Form.Label>
+            <Form.Group
+              controlId="formPhoneNumber"
+              style={{ marginBottom: "20px" }}
+            >
+              <Form.Label style={textStyle}>Your Phone Number <span style={{ color: 'red' }}>*</span> :</Form.Label>
               <Form.Control
                 type="tel"
                 name="phoneNumber"
-                placeholder="Enter mobile number"
-                pattern="^\d{10}$"
+                pattern="[0-9]{10}"
+                maxLength="10"
+                placeholder="xxxxx xxxxx "
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required

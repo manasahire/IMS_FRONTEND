@@ -13,7 +13,9 @@ function FeedbackPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const numericValue = name === 'phoneNumber' ? value.replace(/\D/g, '') : value;
+
+    setFormData({ ...formData, [name]: numericValue });
   };
 
   const handleSubmit = async (e) => {
@@ -60,19 +62,19 @@ function FeedbackPage() {
       <h2>Feedback</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formName" style={{ marginBottom: "10px" }} >
-          <Form.Label style={textStyle} >Your Name</Form.Label>
+          <Form.Label style={textStyle} >Your Name <span style={{ color: 'red' }}>*</span> : </Form.Label>
           <Form.Control type="text" name="name" pattern="[A-Za-z ]{1,}" placeholder='Enter your Full Name ' value={formData.name} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formMessage" style={{ marginBottom: "10px" }} >
-          <Form.Label style={textStyle} >Your Message</Form.Label>
+          <Form.Label style={textStyle} >Your Message <span style={{ color: 'red' }}>*</span> : </Form.Label>
           <Form.Control as="textarea" rows={4} placeholder='Enter your Valuable Feedback for Us ' name="message" value={formData.message} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formPhoneNumber" style={{ marginBottom: "10px" }} >
-          <Form.Label style={textStyle} >Your Phone Number</Form.Label>
-          <Form.Control type="tel" name="phoneNumber" pattern="(\+?\d{1,3})?[-. ]?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}" placeholder="Enter mobile number" value={formData.phoneNumber} onChange={handleChange} required />
+          <Form.Label style={textStyle} >Your Phone Number <span style={{ color: 'red' }}>*</span> : </Form.Label>
+          <Form.Control type="tel" name="phoneNumber" pattern="[0-9]{10}" maxLength="10" placeholder="xxxxx xxxxx " value={formData.phoneNumber} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formCity" style={{ marginBottom: "10px" }} >
-          <Form.Label style={textStyle} >Your City</Form.Label>
+          <Form.Label style={textStyle} >Your City <span style={{ color: 'red' }}>*</span> : </Form.Label>
           <Form.Control type="text" name="city" placeholder='Enter your City ' value={formData.city} onChange={handleChange} required />
         </Form.Group>
         <Button variant="primary" type="submit">
