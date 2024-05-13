@@ -50,7 +50,7 @@ function SignUpPage() {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formFullName" style={{ marginBottom: "10px" }} >
           <Form.Label  style={textStyle} >Full Name</Form.Label>
-          <Form.Control type="text" name="fullName" placeholder=' Enter your Name ' value={formData.fullName} onChange={handleChange} required />
+          <Form.Control type="text" name="fullName" placeholder=' Enter your Name ' pattern="[A-Za-z ]{1,}" value={formData.fullName} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formEmail" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Email</Form.Label>
@@ -66,7 +66,7 @@ function SignUpPage() {
         </Form.Group>
         <Form.Group controlId="formMobileNumber" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Mobile Number</Form.Label>
-          <Form.Control type="tel" name="mobileNumber" pattern="(\+?\d{1,3})?[ -]?\d{10}" placeholder="Enter mobile number" value={formData.mobileNumber} onChange={handleChange} required />
+          <Form.Control type="tel" name="mobileNumber" pattern="(\+?\d{1,3})?[-. ]?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}" placeholder="Enter mobile number" value={formData.mobileNumber} onChange={handleChange} required />
         </Form.Group>
         <Button variant="primary" type="submit">
           Sign Up

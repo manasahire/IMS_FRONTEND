@@ -18,20 +18,21 @@ function LoginPage() {
     e.preventDefault();
     try {
         // Construct the URL with path variables
-    // const url = `http://localhost:8081/signUp/login/${formData.username}/${formData.password}`;
       const response = await axios.post('http://localhost:8081/login/userlogin', formData);
-      if (response.status === 200) {
+      if (response.data === 0) {
+        alert("Login failed");
+        setTimeout(() => {
+          window.location.href = "/*"; // Replace "/" with your error page URL
+        }, 3000);
+        throw new Error('Failed to sign in');
+      } else  {
         alert("Login successful");
         setShowAlert(true);
         // Redirect to homepage after 3 seconds
         setTimeout(() => {
           window.location.href = "/home"; // Replace with your homepage URL
         }, 3000);
-      } else {
-        setTimeout(() => {
-          window.location.href = "/*"; // Replace "/" with your homepage URL
-        }, 3000);
-        throw new Error('Failed to sign in');
+        
       }
     } catch (error) {
       console.error(error);

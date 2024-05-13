@@ -59,7 +59,7 @@ function Admission() {
         <marquee><h3> SEED Infotech Pvt.Ltd </h3></marquee>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle}>Full Name:</Form.Label>
-          <Form.Control type="text" id="full-name" placeholder=' Enter your Full Name ' name="fullName" value={formData.fullName} onChange={handleChange} required />
+          <Form.Control type="text" id="full-name" placeholder=' Enter your Full Name ' pattern="[A-Za-z ]{1,}" name="fullName" value={formData.fullName} onChange={handleChange} required />
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Email:</Form.Label>
@@ -67,7 +67,7 @@ function Admission() {
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Mobile Number:</Form.Label>
-          <Form.Control type="tel" id="mobile" pattern="(\+?\d{1,3})?[ -]?\d{10}" placeholder="Enter mobile number" name="mobile" value={formData.mobile} onChange={handleChange}  required />
+           <Form.Control type="tel" id="mobile"     pattern="^\d{10}$" placeholder="Enter mobile number " name="mobile" value={formData.mobile} onChange={handleChange}  required /> {/*"+1234567890", "123-456-7890", "(123) 456-7890", "123.456.7890" */}
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Class:</Form.Label>

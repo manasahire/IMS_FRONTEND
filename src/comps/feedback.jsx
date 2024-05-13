@@ -61,7 +61,7 @@ function FeedbackPage() {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formName" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Your Name</Form.Label>
-          <Form.Control type="text" name="name" placeholder='Enter your Full Name  ' value={formData.name} onChange={handleChange} required />
+          <Form.Control type="text" name="name" pattern="[A-Za-z ]{1,}" placeholder='Enter your Full Name ' value={formData.name} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formMessage" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Your Message</Form.Label>
@@ -69,7 +69,7 @@ function FeedbackPage() {
         </Form.Group>
         <Form.Group controlId="formPhoneNumber" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Your Phone Number</Form.Label>
-          <Form.Control type="tel" name="phoneNumber" pattern="(\+?\d{1,3})?[ -]?\d{10}" placeholder="Enter mobile number" value={formData.phoneNumber} onChange={handleChange} required />
+          <Form.Control type="tel" name="phoneNumber" pattern="(\+?\d{1,3})?[-. ]?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}" placeholder="Enter mobile number" value={formData.phoneNumber} onChange={handleChange} required />
         </Form.Group>
         <Form.Group controlId="formCity" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Your City</Form.Label>

@@ -73,42 +73,50 @@ function ContactUs() {
               style={{ listStyleType: "none", paddingLeft: 0 }}
             >
               <li style={{ marginBottom: "10px" }}>
-                <Card>
-                  <Card.Body>
-                    <FaWhatsapp />{" "}
-                    <span style={{ marginLeft: "10px" }}>+91-985-458-1259</span>
-                  </Card.Body>
-                </Card>
+                <a href="https://wa.me/919854581259" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card>
+                    <Card.Body>
+                      <FaWhatsapp />{" "}
+                      <span style={{ marginLeft: "10px" }}>+91-985-458-1259</span>
+                    </Card.Body>
+                  </Card>
+                </a>
               </li>
               <li style={{ marginBottom: "10px" }}>
-                <Card>
-                  <Card.Body>
-                    <FaPhone />{" "}
-                    <span style={{ marginLeft: "10px" }}>+91-985-458-1256</span>
-                  </Card.Body>
-                </Card>
+                <a href="tel:+919854581256" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card>
+                    <Card.Body>
+                      <FaPhone />{" "}
+                      <span style={{ marginLeft: "10px" }}>+91-985-458-1256</span>
+                    </Card.Body>
+                  </Card>
+                </a>
               </li>
-              <li  style={{ marginBottom: "10px" }}>
-                <Card>
-                  <Card.Body>
-                    <FaEnvelope />{" "}
-                    <span style={{ marginLeft: "10px" }}>
-                      seedinfotech@gmail.com
-                    </span>
-                  </Card.Body>
-                </Card>
+              <li style={{ marginBottom: "10px" }}>
+                <a href="mailto:seedinfotech@gmail.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card>
+                    <Card.Body>
+                      <FaEnvelope />{" "}
+                      <span style={{ marginLeft: "10px" }}>
+                        seedinfotech@gmail.com
+                      </span>
+                    </Card.Body>
+                  </Card>
+                </a>
               </li>
               <li>
-                <Card className="contact-card">
-                  <Card.Body>
-                    <Card.Title>Contact Us</Card.Title>
-                    <Card.Text>
-                      Shri Vile Parle Kelavani Mandal’s Institute Of Technology,
-                      Survey No. 499, Plot No 02, Behind Gurudwara, Mumbai Agra
-                      National Highway, Dhule -424 001, Maharashtra, India
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
+                <a href="https://www.google.com/maps/place/Nalanda%E2%80%99,+S+No.39+CTS+No+943,+Hissa+2+/2,+Gulawani+Maharaj+Road,+opp.+Gandhi+Lawns,+near+ICICI+Bank,+Erandwane,+Pune,+Maharashtra+411004"
+                target="_blank" rel="noopener noreferrer" className="contact-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Card className="contact-card">
+                    <Card.Body>
+                      <Card.Title>Contact Us</Card.Title>
+                      <Card.Text>
+                        Nalanda’, S No.39 CTS No 943, Hissa 2 /2, Gulawani Maharaj Road, opp. Gandhi Lawns, 
+                        near ICICI Bank, Erandwane, Pune, Maharashtra 411004
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </a>
               </li>
             </ul>
           </div>
@@ -120,6 +128,7 @@ function ContactUs() {
               <Form.Control
                 type="text"
                 name="name"
+                pattern="[A-Za-z ]{1,}"
                 placeholder="Enter your Name "
                 value={formData.name}
                 onChange={handleChange}
@@ -150,18 +159,19 @@ function ContactUs() {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formPhoneNumber"  style={{ marginBottom: "20px" }}>
-              <Form.Label style={textStyle} >Your Phone Number</Form.Label>
+            <Form.Group controlId="formPhoneNumber" style={{ marginBottom: "20px" }}>
+              <Form.Label style={textStyle}>Your Phone Number</Form.Label>
               <Form.Control
                 type="tel"
                 name="phoneNumber"
-                pattern="(\+?\d{1,3})?[ -]?\d{10}"
                 placeholder="Enter mobile number"
+                pattern="^\d{10}$"
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
+
             <Button variant="primary" type="submit">
               Send Message
             </Button>

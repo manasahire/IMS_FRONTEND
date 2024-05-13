@@ -8,7 +8,6 @@ function HomePage() {
   return (
     <div>
 
-        
       <div className="container mt-4 " style={{  height: '650px' }}>
         <h1>Welcome to Our Institute!</h1>
         <Carousel>

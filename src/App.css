@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+ /* Default image size */
+ img {
+  width: 70%; /* Take full width of the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  img {
+    width: 20%; /* Adjust size for smaller screens */
+  }
+}
+
+/* Media query for screens larger than 1200px */
+@media (min-width: 1200px) {
+  img {
+    width: 30%; /* Adjust size for larger screens */
+  }
+}
