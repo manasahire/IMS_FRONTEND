@@ -12,39 +12,17 @@ import LoginPage from "./loginpage";
 import SignUpPage from "./signup";
 import ErrorPage from "./errorPage";
 import Footer from "./footer";
+import AdminLoginPage from "./LoginAdmin";
+import AdminPage from "./adminpage";
 
 function Navbar() {
   return (
-    <Router>
-      <header>
+    <>
+      <Router>
         <div className="container">
-          <div
-            className="d-flex align-items-center"
-            style={{ backgroundColor: "#0D1282" }}
-          >
-            <img
-              src="seedlogo.ico" //clglogo.png   seed.webp
-              alt="Institute Logo"
-              style={{ width: "10%", height: "10%", marginRight: "10px" }}
-            />
-            <div>
-              <h2 className="text-white">
-                <u>SEED Infotech Pvt.Ltd</u>{" "}
-              </h2>
-              <h5 className="text-white">
-                Seed Infotech, Nalanda's No.39 CTS No 943, Hissa 2 /2, Gulawani
-                Maharaj Road,
-                <br />
-                opp. Gandhi Lawns, near ICICI Bank, Erandwane, Pune, Maharashtra
-                411004
-              </h5>
-            </div>
-          </div>
 
-          <nav
-            className="navbar navbar-expand-lg"
-            style={{ backgroundColor: "#0D1282" }}
-          >
+        <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "#5375e2" }}>
+
             <div className="container-fluid">
             <Link className="navbar-brand text-white" to="/">
                 Home Page
@@ -102,10 +80,14 @@ function Navbar() {
                       Sign Up
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link text-white" aria-current="page" to="/login">
-                      Login
+                  <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      login
                     </Link>
+                    <ul className="dropdown-menu">
+                      <li><Link className="dropdown-item" to="/login">User Login</Link></li>
+                      <li><Link className="dropdown-item" to="/adminlogin">Admin Login</Link></li>
+                    </ul>
                   </li>
                   <li className="nav-item">
                     <Link
@@ -130,16 +112,18 @@ function Navbar() {
             <Route path="feedback" Component={FeedbackPage}></Route>
             <Route path="signup" Component={SignUpPage}></Route>
             <Route path="login" Component={LoginPage}></Route>
+            <Route path="adminlogin" Component={AdminLoginPage}></Route>
+            <Route path="admin" Component={AdminPage}></Route>
             <Route path="aboutus" Component={AboutUs}></Route>
             <Route path="*" Component={ErrorPage}></Route>
           </Routes>
         </div>
-      </header>
 
       <footer>
         <Footer />
       </footer>
     </Router>
+    </>
   );
 }
 

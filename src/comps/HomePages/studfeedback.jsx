@@ -12,7 +12,7 @@ function OurHappyStudents() {
     },
     {
       id: 2,
-      img:"boy2.jpeg",
+      img:"girl2.jpeg",
       name: "Alice Smith",
       feedback: "Excellent instructors and course materials.",
     },
@@ -41,10 +41,10 @@ function OurHappyStudents() {
       <h2>Our Happy Students</h2>
       <div className="row">
         {studentFeedback.map((student) => (
-          <div key={student.id} className="col-md-4">
-            <Card style={{ width: "18rem", marginBottom: "20px" }}>
+          <div key={student.id} className="col-lg-4 col-md-6 col-sm-6">
+            <Card style={{ width: "18rem", height: "280px", marginBottom: "20px" , boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}>
               <Card.Body>
-                <Card.Img src={student.img} style={{ width: '150px', height: '150px', display: 'block', margin: 'auto', borderRadius: '50%' }}/>
+                <Card.Img src={student.img} className="d-block img-fluid" style={{ maxWidth: '150px', maxHeight: '150px', display: 'block', margin: 'auto', borderRadius: '50%' }}/>
                 <Card.Title>{student.name}</Card.Title>
                 <Card.Text>{student.feedback}</Card.Text>
               </Card.Body>

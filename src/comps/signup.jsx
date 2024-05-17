@@ -45,7 +45,6 @@ function SignUpPage() {
     
   };
   return (
-
     <Container className="mt-5">
       <h2>Sign Up</h2>
       <Form onSubmit={handleSubmit}>
@@ -67,7 +66,7 @@ function SignUpPage() {
         </Form.Group>
         <Form.Group controlId="formMobileNumber" style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Mobile Number <span style={{ color: 'red' }}>*</span> : </Form.Label>
-          <Form.Control type="tel" name="mobileNumber"  pattern="[0-9]{10}" maxLength="10" placeholder="xxxxx xxxxx" value={formData.mobileNumber} onChange={handleChange} required />
+          <Form.Control type="tel" name="mobileNumber"  pattern="[6-9][0-9]{9}" maxLength="10" placeholder="xxxxx xxxxx" value={formData.mobileNumber} onChange={handleChange} required />
         </Form.Group>
         <Button variant="primary" type="submit">
           Sign Up

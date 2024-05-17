@@ -21,9 +21,10 @@ function Admission() {
   useEffect(() => {
     setFormData(prevState => ({
       ...prevState,
-      courseName: receivedCourseName
+      courseName: receivedCourseName  // Assuming you want the first course as default
     }));
-  }, [receivedCourseName]);
+  },[]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     const numericValue = name === 'mobile' ? value.replace(/\D/g, '') : value;
@@ -65,12 +66,6 @@ function Admission() {
     "Data Science Fundamentals",
     "Full-Stack Web Development",
     "Angular Development",
-    // "Web Development Bootcamp",
-    // "Data Science Essentials",
-    // "Digital Marketing Masterclass",
-    // "Mobile App Development",
-    // "Cybersecurity Fundamentals",
-    // "Graphic Design Workshop"
   ];
   const predefinedClasses =[
     "10th std ",
@@ -95,7 +90,7 @@ function Admission() {
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Mobile Number <span style={{ color: 'red' }}>*</span> :</Form.Label>
-           <Form.Control type="tel" id="mobile" pattern="[0-9]{10}" maxLength="10" placeholder="xxxxx xxxxx " name="mobile" value={formData.mobile} onChange={handleChange}  required /> 
+           <Form.Control type="tel" id="mobile" pattern="[6-9][0-9]{9}" maxLength="10" placeholder="xxxxx xxxxx " name="mobile" value={formData.mobile} onChange={handleChange}  required /> 
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Class <span style={{ color: 'red' }}>*</span> :</Form.Label>
@@ -108,9 +103,18 @@ function Admission() {
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }}>
           <Form.Label style={textStyle}>Course <span style={{ color: 'red' }}>*</span> :</Form.Label>
-          <Form.Control as="select" id="course" name="courseName" value={formData.courseName} onChange={handleChange} disabled required>
-            <option value={receivedCourseName}>{receivedCourseName}</option>
-          </Form.Control>
+          {receivedCourseName !== null ? (
+            <Form.Control as="select" id="course" name="courseName" value={formData.courseName} onChange={handleChange} required>
+              <option value={receivedCourseName}>{receivedCourseName}</option>
+            </Form.Control>
+          ) : (
+            <Form.Control as="select" id="course" name="courseName" value={formData.courseName} onChange={handleChange} required>
+              <option value="">Select Course</option>
+              {predefinedCourses.map(course => (
+                <option key={course} value={course}>{course}</option>
+              ))}
+            </Form.Control>
+          )}
         </Form.Group>
         <Form.Group style={{ marginBottom: "10px" }} >
           <Form.Label style={textStyle} >Address <span style={{ color: 'red' }}>*</span> :</Form.Label>

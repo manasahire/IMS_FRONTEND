@@ -67,7 +67,7 @@ function CoursesPage() {
     <h1 style={{ marginBottom: '30px', textAlign: 'center' }}>All Courses</h1>
     <div className="row">
       {courses.map(course => (
-        <div key={course.id} className="col-md-4" style={{ marginBottom: '20px' }}>
+        <div key={course.id} className="col-lg-4 col-md-6 col-sm-6" style={{ marginBottom: '20px' }}>
           <Card style={{ boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s' }}>
             <Card.Body>
               <Card.Title style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '10px' }}>{course.name}</Card.Title>
