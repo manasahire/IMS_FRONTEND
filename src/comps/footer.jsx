@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer text-white py-4 mt-5" style={{ backgroundColor: "#5c616e" }}>
       <div className="container">
         <div className="row">
-          <div className="col-lg-4">
+          <div className="col-lg-4" >
             <h3>About Us</h3>
             <p>A brief description of the college and its mission.</p>
             <p>Contact: contact@college.edu</p>
@@ -14,16 +14,16 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <ul className="list-unstyled">
               <li>
-                <a href="/home">Home</a>
+                <a href="/home" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home</a>
               </li>
               <li>
-                <a href="/courses">Courses</a>
+                <a href="/courses" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Courses</a>
               </li>
               <li>
-                <a href="/Admision">Admissions</a>
+                <a href="/Admision" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" >Admissions</a>
               </li>
               <li>
-                <a href="/contactUs">Contact Us</a>
+                <a href="/contactUs" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" >Contact Us</a>
               </li>
             </ul>
           </div>
@@ -35,6 +35,7 @@ const Footer = () => {
                   href="https://m.facebook.com/profile.php?id=100064860571188"
                   target="_blank"
                   rel="noopener noreferrer"
+                  class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                 >
                   Facebook
                 </a>
@@ -44,6 +45,7 @@ const Footer = () => {
                   href="https://twitter.com/SEED_Infotech"
                   target="_blank"
                   rel="noopener noreferrer"
+                  class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                 >
                   Twitter
                 </a>
@@ -53,6 +55,7 @@ const Footer = () => {
                   href="https://www.instagram.com/seedinfotechltd/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                 >
                   Instagram
                 </a>
@@ -62,6 +65,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/seed-infotech/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                 >
                   LinkedIn
                 </a>

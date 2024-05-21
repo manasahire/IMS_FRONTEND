@@ -14,7 +14,6 @@ function Admission() {
     address: '',
     paymentMethod: ''
   });
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const receivedCourseName = queryParams.get('course');
@@ -24,7 +23,6 @@ function Admission() {
       courseName: receivedCourseName  // Assuming you want the first course as default
     }));
   },[]);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     const numericValue = name === 'mobile' ? value.replace(/\D/g, '') : value;
@@ -32,7 +30,6 @@ function Admission() {
     setFormData({ ...formData, [name]: numericValue });
 
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     alert( JSON.stringify(formData))
@@ -55,8 +52,7 @@ function Admission() {
   };
   const textStyle = {
   fontWeight: 'bold',
-  textTransform: 'uppercase'
-    
+  textTransform: 'uppercase' 
   };
   const predefinedCourses = [
     "React Fundamentals",
@@ -121,12 +117,11 @@ function Admission() {
           <Form.Control as="textarea" id="address" name="address" pattern="[A-Za-z0-9\s.,]+" placeholder='Address ' value={formData.address} onChange={handleChange} rows="4" required />
         </Form.Group>
         <Form.Group style={{ marginBottom: "20px" }} >
-          <Form.Label style={textStyle} >Payment Method <span style={{ color: 'red' }}>*</span> :</Form.Label><br />
+          <Form.Label style={textStyle} >Payment Method :</Form.Label><br />
           <Form.Check type="radio" id="card" name="paymentMethod" label="Card" value= "Card" checked={formData.paymentMethod === "Card"} onChange={handleChange}  />
           <Form.Check type="radio" id="upi" name="paymentMethod" label="UPI" value= "UPI" checked={formData.paymentMethod === "UPI"} onChange={handleChange} />
           <Form.Check type="radio" id="cash" name="paymentMethod" label="Cash" value= "Cash" checked={formData.paymentMethod === "Cash"} onChange={handleChange} />
         </Form.Group>
-
         <div style={{ textAlign: "center" }}>
           <Button type="submit" className="submit-btn">Submit</Button>
         </div>      
